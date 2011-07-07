@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4DB2D1013C6362B00F1C9E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */; };
+		F4DB2D1A13C6362B00F1C9E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DB2D1813C6362B00F1C9E1 /* InfoPlist.strings */; };
+		F4DB2D1D13C6362B00F1C9E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D1C13C6362B00F1C9E1 /* main.m */; };
+		F4DB2D2013C6362B00F1C9E1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F4DB2D1E13C6362B00F1C9E1 /* Credits.rtf */; };
+		F4DB2D2313C6362B00F1C9E1 /* streamingTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D2213C6362B00F1C9E1 /* streamingTestAppDelegate.m */; };
+		F4DB2D2613C6362B00F1C9E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F4DB2D0B13C6362B00F1C9E1 /* streamingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = streamingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F4DB2D1213C6362B00F1C9E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F4DB2D1313C6362B00F1C9E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F4DB2D1413C6362B00F1C9E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F4DB2D1713C6362B00F1C9E1 /* streamingTest-Info.plist */ = {isa = PBXFileReference; path = "streamingTest-Info.plist"; sourceTree = "<group>"; };
+		F4DB2D1913C6362B00F1C9E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4DB2D1B13C6362B00F1C9E1 /* streamingTest-Prefix.pch */ = {isa = PBXFileReference; path = "streamingTest-Prefix.pch"; sourceTree = "<group>"; };
+		F4DB2D1C13C6362B00F1C9E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F4DB2D1F13C6362B00F1C9E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F4DB2D2113C6362B00F1C9E1 /* streamingTestAppDelegate.h */ = {isa = PBXFileReference; path = streamingTestAppDelegate.h; sourceTree = "<group>"; };
+		F4DB2D2213C6362B00F1C9E1 /* streamingTestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = streamingTestAppDelegate.m; sourceTree = "<group>"; };
+		F4DB2D2513C6362B00F1C9E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4DB2D0813C6362B00F1C9E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DB2D1013C6362B00F1C9E1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F4DB2D0013C6362B00F1C9E1 = {
+			isa = PBXGroup;
+			children = (
+				F4DB2D1513C6362B00F1C9E1 /* streamingTest */,
+				F4DB2D0E13C6362B00F1C9E1 /* Frameworks */,
+				F4DB2D0C13C6362B00F1C9E1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4DB2D0C13C6362B00F1C9E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4DB2D0B13C6362B00F1C9E1 /* streamingTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4DB2D0E13C6362B00F1C9E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */,
+				F4DB2D1113C6362B00F1C9E1 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4DB2D1113C6362B00F1C9E1 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4DB2D1213C6362B00F1C9E1 /* AppKit.framework */,
+				F4DB2D1313C6362B00F1C9E1 /* CoreData.framework */,
+				F4DB2D1413C6362B00F1C9E1 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F4DB2D1513C6362B00F1C9E1 /* streamingTest */ = {
+			isa = PBXGroup;
+			children = (
+				F4DB2D2113C6362B00F1C9E1 /* streamingTestAppDelegate.h */,
+				F4DB2D2213C6362B00F1C9E1 /* streamingTestAppDelegate.m */,
+				F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */,
+				F4DB2D1613C6362B00F1C9E1 /* Supporting Files */,
+			);
+			path = streamingTest;
+			sourceTree = "<group>";
+		};
+		F4DB2D1613C6362B00F1C9E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4DB2D1713C6362B00F1C9E1 /* streamingTest-Info.plist */,
+				F4DB2D1813C6362B00F1C9E1 /* InfoPlist.strings */,
+				F4DB2D1B13C6362B00F1C9E1 /* streamingTest-Prefix.pch */,
+				F4DB2D1C13C6362B00F1C9E1 /* main.m */,
+				F4DB2D1E13C6362B00F1C9E1 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F4DB2D0A13C6362B00F1C9E1 /* streamingTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4DB2D2913C6362B00F1C9E1 /* Build configuration list for PBXNativeTarget "streamingTest" */;
+			buildPhases = (
+				F4DB2D0713C6362B00F1C9E1 /* Sources */,
+				F4DB2D0813C6362B00F1C9E1 /* Frameworks */,
+				F4DB2D0913C6362B00F1C9E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = streamingTest;
+			productName = streamingTest;
+			productReference = F4DB2D0B13C6362B00F1C9E1 /* streamingTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4DB2D0213C6362B00F1C9E1 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = F4DB2D0513C6362B00F1C9E1 /* Build configuration list for PBXProject "streamingTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F4DB2D0013C6362B00F1C9E1;
+			productRefGroup = F4DB2D0C13C6362B00F1C9E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4DB2D0A13C6362B00F1C9E1 /* streamingTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4DB2D0913C6362B00F1C9E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DB2D1A13C6362B00F1C9E1 /* InfoPlist.strings in Resources */,
+				F4DB2D2013C6362B00F1C9E1 /* Credits.rtf in Resources */,
+				F4DB2D2613C6362B00F1C9E1 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4DB2D0713C6362B00F1C9E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4DB2D1D13C6362B00F1C9E1 /* main.m in Sources */,
+				F4DB2D2313C6362B00F1C9E1 /* streamingTestAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F4DB2D1813C6362B00F1C9E1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4DB2D1913C6362B00F1C9E1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F4DB2D1E13C6362B00F1C9E1 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4DB2D1F13C6362B00F1C9E1 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4DB2D2513C6362B00F1C9E1 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F4DB2D2713C6362B00F1C9E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F4DB2D2813C6362B00F1C9E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F4DB2D2A13C6362B00F1C9E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "streamingTest/streamingTest-Prefix.pch";
+				INFOPLIST_FILE = "streamingTest/streamingTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F4DB2D2B13C6362B00F1C9E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "streamingTest/streamingTest-Prefix.pch";
+				INFOPLIST_FILE = "streamingTest/streamingTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F4DB2D0513C6362B00F1C9E1 /* Build configuration list for PBXProject "streamingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4DB2D2713C6362B00F1C9E1 /* Debug */,
+				F4DB2D2813C6362B00F1C9E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4DB2D2913C6362B00F1C9E1 /* Build configuration list for PBXNativeTarget "streamingTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4DB2D2A13C6362B00F1C9E1 /* Debug */,
+				F4DB2D2B13C6362B00F1C9E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F4DB2D0213C6362B00F1C9E1 /* Project object */;
+}
