@@ -16,5 +16,6 @@
 -(id)initWithRows:(NSArray *)rows;
 
 -(void)addObject:(NSDictionary *)row;
+-(NSDictionary *)objectAtIndex:(NSUInteger)row;
 
 @end

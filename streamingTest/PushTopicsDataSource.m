@@ -35,4 +35,8 @@
     [rows addObject:row];
 }
 
+-(NSDictionary *)objectAtIndex:(NSUInteger)row {
+    return [rows objectAtIndex:row];
+}
+
 @end

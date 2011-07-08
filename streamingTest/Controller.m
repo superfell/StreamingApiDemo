@@ -20,13 +20,14 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
 
 @implementation Controller
 
-@synthesize username, password, channel, sessionId, instance, client, connected;
+@synthesize username, password, channel, sessionId, instance, client, stateDescription;
 @synthesize loggedIn, pushTopicsDataSource;
 
 - (id)init {
     self = [super init];
     self.username = @"sforce2@zaks.demon.co.uk";
     self.channel = @"/Accounts";
+    [self stateChangedTo:sacDisconnected];
     events = [[NSMutableArray alloc] initWithCapacity:32];
     return self;
 }
@@ -116,14 +117,20 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
 
 -(IBAction)subscribe:(id)sender {
     NSLog(@"subscribe %@", sender);
+    NSTableView *t = sender;
+    NSUInteger r = [t selectedRow];
+    NSDictionary *row = [self.pushTopicsDataSource objectAtIndex:r];
+    NSLog(@"row %@", row);
+    [self.client subscribe:[NSString stringWithFormat:@"/%@", [row objectForKey:@"Name"]]];
 }
 
--(void)connected:(NSString *)clientId {
-    self.connected = YES;
-}
-
--(void)disconnected {
-    self.connected = NO;
+-(void)stateChangedTo:(StreamingApiState)newState {
+    switch (newState) {
+        case sacDisconnected: self.stateDescription = @"Disconnected"; break;
+        case sacConnecting:   self.stateDescription = @"Connecting"; break;
+        case sacConnected:    self.stateDescription = @"Connected"; break;
+        case sacDisconnecting:self.stateDescription = @"Disconnecting"; break;
+    }
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {

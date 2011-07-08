@@ -11,13 +11,13 @@
 #import "SBJsonWriter.h"
 
 @interface StreamingApiClient ()
-@property (assign) BOOL connected;
+@property (assign) StreamingApiState currentState;
 @property (retain) NSString *clientId;
 @end
 
 @implementation StreamingApiClient
 
-@synthesize clientId, connected, delegate;
+@synthesize clientId, delegate;
 
 -(id)initWithSessionId:(NSString *)sid instance:(NSURL *)salesforceInstance {
     self = [super init];
@@ -25,6 +25,7 @@
         cometdUrl = [[NSURL URLWithString:@"/cometd" relativeToURL:salesforceInstance] retain];
         parser = [[SBJsonParser alloc] init];
         writer = [[SBJsonWriter alloc] init];
+        state = sacDisconnected;
         
         // set the Sid cookie in the cookie store
         NSDictionary *sidCookieProps = [NSDictionary dictionaryWithObjectsAndKeys:sid, NSHTTPCookieValue,
@@ -77,10 +78,12 @@
         [msgs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSDictionary *m = (NSDictionary *)obj;
             NSString *chan = [m objectForKey:@"channel"];
-            if (![chan hasPrefix:@"/meta/"])
+            if (![chan hasPrefix:@"/meta/"]) {
                 [self.delegate eventOnChannel:chan message:[m objectForKey:@"data"]];
-            else if ([chan isEqualToString:@"/meta/connect"] && [[m objectForKey:@"successful"] intValue] == 1)
+            } else if ([chan isEqualToString:@"/meta/connect"] && [[m objectForKey:@"successful"] intValue] == 1) {
+                self.currentState = sacConnected;
                 [self connectLoopWithSubscribe:nil];
+            }
         }];
         
     } runOnMainThread:YES];
@@ -90,27 +93,28 @@
 
 -(void)startConnect:(NSString *)subscription {
     // do handshake, then start connect loop
+    self.currentState = sacConnecting;
     NSDictionary *hs = [NSDictionary dictionaryWithObjectsAndKeys:@"/meta/handshake", @"channel", 
                         @"1.0", @"version", 
                         @"1.0", @"minimumVersion", 
                         [NSArray arrayWithObject:@"long-polling"], @"supportedConnectionTypes", nil];
     
-    StreamingApiClient *me = self;
     UrlConnectionDelegate *d = [UrlConnectionDelegateWithBlock urlDelegateWithBlock:^(NSUInteger httpStatusCode, NSHTTPURLResponse *response, NSData *body, NSError *err) {
         NSArray *o = [parser objectWithData:body];
         NSLog(@"handshake returned %lu, %@", httpStatusCode, o);
         self.clientId = [[o objectAtIndex:0] objectForKey:@"clientId"];
-        self.connected = TRUE;
-        if ([self.delegate respondsToSelector:@selector(connected:)])
-            [self.delegate connected:self.clientId];
-        
-        [me connectLoopWithSubscribe:subscription];
+        [self connectLoopWithSubscribe:subscription];
         
     } runOnMainThread:YES];
     [self postCometd:[NSArray arrayWithObject:hs] delegate:d];
 }
 
 -(void)subscribe:(NSString *)subscription {
+    if (state == sacDisconnected) {
+        [self startConnect:subscription];
+        return;
+    }
+    
     NSDictionary *subscribeMsg = [NSDictionary dictionaryWithObjectsAndKeys:clientId, @"clientId",
                                   @"/meta/subscribe", @"channel",
                                   subscription, @"subscription", nil];
@@ -130,7 +134,12 @@
     [self postCometd:subscribeMsg delegate:d];
 }
 
+-(void)unsubscribe:(NSString *)subscription {
+    // TODO
+}
+
 -(void)stop {
+    self.currentState = sacDisconnecting;
     NSDictionary *disconnectMsg = [NSDictionary dictionaryWithObjectsAndKeys:clientId, @"clientId",
                                   @"/meta/disconnect", @"channel", nil];
     
@@ -140,11 +149,21 @@
             NSLog(@"raw data : %@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
         
         NSLog(@"disconnect returned %@", o);
-        if ([self.delegate respondsToSelector:@selector(disconnected)])
-            [self.delegate disconnected];
+        self.currentState = sacDisconnected;
         
     } runOnMainThread:YES];
     [self postCometd:disconnectMsg delegate:d];
+}
+
+-(StreamingApiState)currentState {
+    return state;
+}
+
+-(void)setCurrentState:(StreamingApiState)newState {
+    if (newState == state) return;
+    state = newState;
+    if ([self.delegate respondsToSelector:@selector(stateChangedTo:)])
+        [self.delegate stateChangedTo:newState];
 }
 
 @end

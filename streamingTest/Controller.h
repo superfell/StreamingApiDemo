@@ -27,7 +27,7 @@
 @property (retain) NSString *sessionId;
 @property (retain) NSString *instance;
 
-@property (assign) BOOL connected;
+@property (retain) NSString *stateDescription;
 @property (retain) PushTopicsDataSource *pushTopicsDataSource;
 
 -(IBAction)login:(id)sender;
