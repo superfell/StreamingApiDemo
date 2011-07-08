@@ -10,9 +10,10 @@
 
 @implementation PushTopicsDataSource
 
-- (id)initWithRows:(NSArray *)r {
+-(id)initWithRows:(NSArray *)r delegate:(NSObject<TableSubscribes> *)d {
     self = [super init];
     rows = [r mutableCopy];
+    delegate = d;
     subscriptions = [[NSMutableSet alloc] init];
     return self;
 }
@@ -43,17 +44,18 @@
         v = [NSNumber numberWithBool:[subscriptions containsObject:r]];
     else
         v = [r objectForKey:[tableColumn identifier]];
-    NSLog(@"valForCol %@ row %ld => %@", tableColumn.identifier, row, v);
     return v;
 }
 
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSLog(@"setObjectValue:%@ forCol %@ row %ld", object, tableColumn.identifier, row);
     NSDictionary *r = [rows objectAtIndex:row];
-    if ([object intValue] == 1)
+    if ([object intValue] == 1) {
         [subscriptions addObject:r];
-    else
+        [delegate subscribeTo:[NSString stringWithFormat:@"/%@", [r objectForKey:@"Name"]]];
+    } else {
         [subscriptions removeObject:r];
+        [delegate unsubscribeFrom:[NSString stringWithFormat:@"/%@", [r objectForKey:@"Name"]]];
+    }
 }
 
 @end

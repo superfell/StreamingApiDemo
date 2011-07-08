@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol TableSubscribes <NSObject>
+-(void)subscribeTo:(NSString *)subscription;
+-(void)unsubscribeFrom:(NSString *)subscription;
+@end
 
 @interface PushTopicsDataSource : NSObject <NSTableViewDataSource> {
-    NSMutableArray *rows;
-    NSMutableSet   *subscriptions;
+    NSMutableArray              *rows;
+    NSMutableSet                *subscriptions;
+    NSObject<TableSubscribes>   *delegate;
 }
 
--(id)initWithRows:(NSArray *)rows;
+-(id)initWithRows:(NSArray *)rows delegate:(NSObject<TableSubscribes> *)delegate;
 
 -(void)addObject:(NSDictionary *)row;
 -(NSDictionary *)objectAtIndex:(NSUInteger)row;

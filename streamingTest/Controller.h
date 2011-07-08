@@ -7,11 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import "StreamingApiClient.h"
+#import "PushTopicsDataSource.h"
 
 @class NewPushTopicController;
-@class PushTopicsDataSource;
 
-@interface Controller : NSObject <StreamingApiClientDelegate, NSTableViewDataSource> {
+@interface Controller : NSObject <StreamingApiClientDelegate, NSTableViewDataSource, TableSubscribes> {
     IBOutlet    NSTableView *eventTable, *topicsTable;
     IBOutlet    NewPushTopicController *newTopicController;
     NSMutableArray          *events;
@@ -33,8 +33,6 @@
 -(IBAction)login:(id)sender;
 -(IBAction)start:(id)sender;
 -(IBAction)stop:(id)sender;
-
--(IBAction)subscribe:(id)sender;
 
 -(IBAction)addPushTopic:(id)sender;
 

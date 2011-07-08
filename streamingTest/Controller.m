@@ -65,7 +65,7 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
 
 -(void)startPushTopicQuery {
     [self query:@"select name, query, apiVersion from pushTopic order by name" doneBlock:^(NSDictionary *qr) {
-        self.pushTopicsDataSource = [[[PushTopicsDataSource alloc] initWithRows:[qr objectForKey:@"records"]] autorelease];
+        self.pushTopicsDataSource = [[[PushTopicsDataSource alloc] initWithRows:[qr objectForKey:@"records"] delegate:self] autorelease];
         [topicsTable setDataSource:self.pushTopicsDataSource];
     }];
 }
@@ -115,13 +115,12 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
     [eventTable reloadData];
 }
 
--(IBAction)subscribe:(id)sender {
-    NSLog(@"subscribe %@", sender);
-    NSTableView *t = sender;
-    NSUInteger r = [t selectedRow];
-    NSDictionary *row = [self.pushTopicsDataSource objectAtIndex:r];
-    NSLog(@"row %@", row);
-    [self.client subscribe:[NSString stringWithFormat:@"/%@", [row objectForKey:@"Name"]]];
+-(void)subscribeTo:(NSString *)subscription {
+    [self.client subscribe:subscription];
+}
+
+-(void)unsubscribeFrom:(NSString *)subscription {
+    [self.client unsubscribe:subscription];
 }
 
 -(void)stateChangedTo:(StreamingApiState)newState {
