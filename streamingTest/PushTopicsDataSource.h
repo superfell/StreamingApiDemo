@@ -10,9 +10,11 @@
 
 
 @interface PushTopicsDataSource : NSObject <NSTableViewDataSource> {
-    NSArray *rows;
+    NSMutableArray *rows;
 }
 
 -(id)initWithRows:(NSArray *)rows;
+
+-(void)addObject:(NSDictionary *)row;
 
 @end

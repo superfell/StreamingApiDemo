@@ -9,6 +9,7 @@
 #import "StreamingApiClient.h"
 
 @class NewPushTopicController;
+@class PushTopicsDataSource;
 
 @interface Controller : NSObject <StreamingApiClientDelegate, NSTableViewDataSource> {
     IBOutlet    NSTableView *eventTable, *topicsTable;
@@ -27,7 +28,7 @@
 @property (retain) NSString *instance;
 
 @property (assign) BOOL connected;
-@property (retain) NSObject<NSTableViewDataSource> *pushTopicsDataSource;
+@property (retain) PushTopicsDataSource *pushTopicsDataSource;
 
 -(IBAction)login:(id)sender;
 -(IBAction)start:(id)sender;

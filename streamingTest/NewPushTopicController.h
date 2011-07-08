@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^NewTopicBlock)(NSDictionary *newTopic);
 
 @interface NewPushTopicController : NSObject {
     IBOutlet NSWindow *window;
@@ -21,7 +22,8 @@
 
 @property (readonly) BOOL canSave;
 @property (assign) BOOL showSpinner;
+@property (retain) NSDictionary *createdTopic;
 
--(void)showSheetForWindow:(NSWindow *)window;
+-(void)showSheetForWindow:(NSWindow *)docWindow topicBlock:(NewTopicBlock)block;
 
 @end

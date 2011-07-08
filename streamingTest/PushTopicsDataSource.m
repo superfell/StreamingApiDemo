@@ -13,7 +13,7 @@
 
 - (id)initWithRows:(NSArray *)r {
     self = [super init];
-    rows = [r retain];
+    rows = [r mutableCopy];
     return self;
 }
 
@@ -29,6 +29,10 @@
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     NSDictionary *r = [rows objectAtIndex:row];
     return [r objectForKey:[tableColumn identifier]];
+}
+
+-(void)addObject:(NSDictionary *)row {
+    [rows addObject:row];
 }
 
 @end

@@ -14,7 +14,9 @@
 
 @implementation NewPushTopicController
 
-@synthesize  name,query,description, showSpinner;
+@synthesize  name,query,description, showSpinner, createdTopic;
+
+
 
 +(NSSet *)keyPathsForValuesAffectingCanSave {
     return [NSSet setWithObjects:@"name", @"query", nil];
@@ -39,16 +41,17 @@
     return ([name length] > 0) && ([query length] > 0);
 }
 
--(void)showSheetForWindow:(NSWindow *)docWindow {
+-(void)showSheetForWindow:(NSWindow *)docWindow topicBlock:(NewTopicBlock)block {
     self.showSpinner = NO;
-    [NSApp beginSheet:window modalForWindow:docWindow modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    self.createdTopic = nil;
+    [NSApp beginSheet:window modalForWindow:docWindow modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:Block_copy(block)];
 }
 
 -(void)save:(id)sender {
-    NSDictionary *topic = [NSDictionary dictionaryWithObjectsAndKeys:self.name, @"name", 
-                           self.query, @"query", 
+    NSDictionary *topic = [NSDictionary dictionaryWithObjectsAndKeys:self.name, @"Name", 
+                           self.query, @"Query", 
                            @"22.0", @"ApiVersion", 
-                           self.description, @"description", nil];
+                           self.description, @"Description", nil];
     NSMutableURLRequest *r = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"/services/data/v22.0/sobjects/pushTopic" relativeToURL:[[NSApp delegate] instanceUrl]]];
     [r setValue:[NSString stringWithFormat:@"OAuth %@", [[NSApp delegate] sessionId]] forHTTPHeaderField:@"Authorization"];
     [r setHTTPMethod:@"POST"];
@@ -60,6 +63,7 @@
     UrlConnectionDelegateWithBlock *d = [UrlConnectionDelegateWithBlock urlDelegateWithBlock:^(NSUInteger httpStatusCode, NSHTTPURLResponse *response, NSData *body, NSError *err) {
         self.showSpinner = NO;
         if (httpStatusCode == 201) {
+            self.createdTopic = topic;
             [NSApp endSheet:window returnCode:0];
             return;
         }
@@ -84,6 +88,11 @@
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    NewTopicBlock b = contextInfo;
+    if (returnCode == 0)
+        b(self.createdTopic);
+
+    Block_release(b);
     [sheet orderOut:self];
 }
 

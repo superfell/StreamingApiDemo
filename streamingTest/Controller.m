@@ -36,11 +36,6 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
     [super dealloc];
 }
 
--(IBAction)addPushTopic:(id)sender {
-    NSWindow *myWindow = [[NSApp delegate] window];
-    [newTopicController showSheetForWindow:myWindow];
-}
-
 -(void)query:(NSString *)soql doneBlock:(void (^)(NSDictionary *qr))done {
     NSString *path = [NSString stringWithFormat:@"/services/data/v21.0/query?q=%@", [soql stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURL *qurl = [NSURL URLWithString:path relativeToURL:[NSURL URLWithString:self.instance]];
@@ -55,6 +50,16 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
         // TODO handle errors
     } runOnMainThread:YES];
     [[[NSURLConnection alloc] initWithRequest:r delegate:d startImmediately:YES] autorelease];
+}
+
+-(IBAction)addPushTopic:(id)sender {
+    NSWindow *myWindow = [[NSApp delegate] window];
+    [newTopicController showSheetForWindow:myWindow topicBlock:^(NSDictionary *newTopic) {
+        NSLog(@"newTopic is %@", newTopic);
+        if (newTopic == nil) return;
+        [self.pushTopicsDataSource addObject:newTopic];
+        [topicsTable reloadData];
+    }];
 }
 
 -(void)startPushTopicQuery {
