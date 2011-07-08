@@ -11,6 +11,7 @@
 
 @interface PushTopicsDataSource : NSObject <NSTableViewDataSource> {
     NSMutableArray *rows;
+    NSMutableSet   *subscriptions;
 }
 
 -(id)initWithRows:(NSArray *)rows;

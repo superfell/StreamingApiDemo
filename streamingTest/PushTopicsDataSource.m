@@ -3,7 +3,6 @@
 //  streamingTest
 //
 //  Created by Simon Fell on 7/7/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "PushTopicsDataSource.h"
@@ -14,21 +13,14 @@
 - (id)initWithRows:(NSArray *)r {
     self = [super init];
     rows = [r mutableCopy];
+    subscriptions = [[NSMutableSet alloc] init];
     return self;
 }
 
 - (void)dealloc {
     [rows release];
+    [subscriptions release];
     [super dealloc];
-}
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [rows count];
-}
-
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSDictionary *r = [rows objectAtIndex:row];
-    return [r objectForKey:[tableColumn identifier]];
 }
 
 -(void)addObject:(NSDictionary *)row {
@@ -37,6 +29,31 @@
 
 -(NSDictionary *)objectAtIndex:(NSUInteger)row {
     return [rows objectAtIndex:row];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [rows count];
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSDictionary *r = [rows objectAtIndex:row];
+    NSString *col = [tableColumn identifier];
+    id v = nil;
+    if ([col isEqualToString:@"subscribed"])
+        v = [NSNumber numberWithBool:[subscriptions containsObject:r]];
+    else
+        v = [r objectForKey:[tableColumn identifier]];
+    NSLog(@"valForCol %@ row %ld => %@", tableColumn.identifier, row, v);
+    return v;
+}
+
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSLog(@"setObjectValue:%@ forCol %@ row %ld", object, tableColumn.identifier, row);
+    NSDictionary *r = [rows objectAtIndex:row];
+    if ([object intValue] == 1)
+        [subscriptions addObject:r];
+    else
+        [subscriptions removeObject:r];
 }
 
 @end
