@@ -102,6 +102,11 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
     [[[NSURLConnection alloc] initWithRequest:r delegate:d startImmediately:YES] autorelease];
 }
 
+-(IBAction)clearEvents:(id)sender {
+    [events removeAllObjects];
+    [eventTable reloadData];
+}
+
 -(void)start:(id)sender {
     [self.client startConnect:self.channel];
 }

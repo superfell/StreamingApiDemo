@@ -35,5 +35,6 @@
 -(IBAction)stop:(id)sender;
 
 -(IBAction)addPushTopic:(id)sender;
+-(IBAction)clearEvents:(id)sender;
 
 @end
