@@ -23,6 +23,8 @@
 		F4DB2D4413C6366000F1C9E1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D3C13C6366000F1C9E1 /* SBJsonWriter.m */; };
 		F4DB2D4713C636A200F1C9E1 /* UrlConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */; };
 		F4DB2D4A13C6398700F1C9E1 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4913C6398700F1C9E1 /* Controller.m */; };
+		F4DB2D4D13C6719B00F1C9E1 /* StreamingApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */; };
+		F4DB2D5013C6876900F1C9E1 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4F13C6876900F1C9E1 /* NSObject+SBJson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,10 @@
 		F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlConnectionDelegate.m; sourceTree = "<group>"; };
 		F4DB2D4813C6398700F1C9E1 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		F4DB2D4913C6398700F1C9E1 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		F4DB2D4B13C6719B00F1C9E1 /* StreamingApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamingApiClient.h; sourceTree = "<group>"; };
+		F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingApiClient.m; sourceTree = "<group>"; };
+		F4DB2D4E13C6876900F1C9E1 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		F4DB2D4F13C6876900F1C9E1 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,8 @@
 				F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */,
 				F4DB2D2113C6362B00F1C9E1 /* streamingTestAppDelegate.h */,
 				F4DB2D2213C6362B00F1C9E1 /* streamingTestAppDelegate.m */,
+				F4DB2D4B13C6719B00F1C9E1 /* StreamingApiClient.h */,
+				F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */,
 				F4DB2D4813C6398700F1C9E1 /* Controller.h */,
 				F4DB2D4913C6398700F1C9E1 /* Controller.m */,
 				F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */,
@@ -140,6 +148,8 @@
 		F4DB2D2C13C6363700F1C9E1 /* json */ = {
 			isa = PBXGroup;
 			children = (
+				F4DB2D4E13C6876900F1C9E1 /* NSObject+SBJson.h */,
+				F4DB2D4F13C6876900F1C9E1 /* NSObject+SBJson.m */,
 				F4DB2D2D13C6366000F1C9E1 /* SBJsonParser.h */,
 				F4DB2D2E13C6366000F1C9E1 /* SBJsonParser.m */,
 				F4DB2D2F13C6366000F1C9E1 /* SBJsonStreamParser.h */,
@@ -232,6 +242,8 @@
 				F4DB2D4413C6366000F1C9E1 /* SBJsonWriter.m in Sources */,
 				F4DB2D4713C636A200F1C9E1 /* UrlConnectionDelegate.m in Sources */,
 				F4DB2D4A13C6398700F1C9E1 /* Controller.m in Sources */,
+				F4DB2D4D13C6719B00F1C9E1 /* StreamingApiClient.m in Sources */,
+				F4DB2D5013C6876900F1C9E1 /* NSObject+SBJson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
