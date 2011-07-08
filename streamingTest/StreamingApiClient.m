@@ -126,16 +126,24 @@
         
         NSLog(@"connect returned %@", o);
         
-        // TODO
-//        if (httpStatusCode == 200)
-  //          [me connectLoopWithSubscribe:nil];
-        
     } runOnMainThread:YES];
     [self postCometd:subscribeMsg delegate:d];
 }
 
 -(void)unsubscribe:(NSString *)subscription {
-    // TODO
+    NSDictionary *msg = [NSDictionary dictionaryWithObjectsAndKeys:clientId, @"clientId",
+                                  @"/meta/unsubscribe", @"channel",
+                                  subscription, @"subscription", nil];
+    
+    UrlConnectionDelegate *d = [UrlConnectionDelegateWithBlock urlDelegateWithBlock:^(NSUInteger httpStatusCode, NSHTTPURLResponse *response, NSData *body, NSError *err) {
+        NSArray *o = [parser objectWithData:body];
+        if (o == nil) 
+            NSLog(@"raw data : %@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
+        
+        NSLog(@"unsubscribe returned %@", o);
+        
+    } runOnMainThread:YES];
+    [self postCometd:msg delegate:d];
 }
 
 -(void)stop {
