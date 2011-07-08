@@ -115,7 +115,6 @@
                                   @"/meta/subscribe", @"channel",
                                   subscription, @"subscription", nil];
     
-//    StreamingApiClient *me = self;
     UrlConnectionDelegate *d = [UrlConnectionDelegateWithBlock urlDelegateWithBlock:^(NSUInteger httpStatusCode, NSHTTPURLResponse *response, NSData *body, NSError *err) {
         NSArray *o = [parser objectWithData:body];
         if (o == nil) 

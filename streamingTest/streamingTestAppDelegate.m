@@ -3,14 +3,13 @@
 //  streamingTest
 //
 //  Created by Simon Fell on 7/7/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "streamingTestAppDelegate.h"
 
 @implementation streamingTestAppDelegate
 
-@synthesize window;
+@synthesize window, sessionId, instanceUrl;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

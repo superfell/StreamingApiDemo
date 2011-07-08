@@ -25,6 +25,8 @@
 		F4DB2D4A13C6398700F1C9E1 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4913C6398700F1C9E1 /* Controller.m */; };
 		F4DB2D4D13C6719B00F1C9E1 /* StreamingApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */; };
 		F4DB2D5013C6876900F1C9E1 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4F13C6876900F1C9E1 /* NSObject+SBJson.m */; };
+		F4DB2D5313C68F7F00F1C9E1 /* PushTopicsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */; };
+		F4DB2D5613C6B57B00F1C9E1 /* NewPushTopicController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,10 @@
 		F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingApiClient.m; sourceTree = "<group>"; };
 		F4DB2D4E13C6876900F1C9E1 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		F4DB2D4F13C6876900F1C9E1 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		F4DB2D5113C68F7E00F1C9E1 /* PushTopicsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTopicsDataSource.h; sourceTree = "<group>"; };
+		F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTopicsDataSource.m; sourceTree = "<group>"; };
+		F4DB2D5413C6B57B00F1C9E1 /* NewPushTopicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPushTopicController.h; sourceTree = "<group>"; };
+		F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPushTopicController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,10 @@
 				F4DB2D4913C6398700F1C9E1 /* Controller.m */,
 				F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */,
 				F4DB2D1613C6362B00F1C9E1 /* Supporting Files */,
+				F4DB2D5113C68F7E00F1C9E1 /* PushTopicsDataSource.h */,
+				F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */,
+				F4DB2D5413C6B57B00F1C9E1 /* NewPushTopicController.h */,
+				F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */,
 			);
 			path = streamingTest;
 			sourceTree = "<group>";
@@ -244,6 +254,8 @@
 				F4DB2D4A13C6398700F1C9E1 /* Controller.m in Sources */,
 				F4DB2D4D13C6719B00F1C9E1 /* StreamingApiClient.m in Sources */,
 				F4DB2D5013C6876900F1C9E1 /* NSObject+SBJson.m in Sources */,
+				F4DB2D5313C68F7F00F1C9E1 /* PushTopicsDataSource.m in Sources */,
+				F4DB2D5613C6B57B00F1C9E1 /* NewPushTopicController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

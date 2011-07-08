@@ -8,9 +8,11 @@
 #import <Foundation/Foundation.h>
 #import "StreamingApiClient.h"
 
+@class NewPushTopicController;
 
 @interface Controller : NSObject <StreamingApiClientDelegate, NSTableViewDataSource> {
-    IBOutlet    NSTableView *eventTable;
+    IBOutlet    NSTableView *eventTable, *topicsTable;
+    IBOutlet    NewPushTopicController *newTopicController;
     NSMutableArray          *events;
 }
 
@@ -20,13 +22,19 @@
 @property (retain) NSString *password;
 @property (retain) NSString *channel;
 
+@property (assign) BOOL loggedIn;
 @property (retain) NSString *sessionId;
 @property (retain) NSString *instance;
 
 @property (assign) BOOL connected;
+@property (retain) NSObject<NSTableViewDataSource> *pushTopicsDataSource;
 
 -(IBAction)login:(id)sender;
 -(IBAction)start:(id)sender;
 -(IBAction)stop:(id)sender;
+
+-(IBAction)subscribe:(id)sender;
+
+-(IBAction)addPushTopic:(id)sender;
 
 @end
