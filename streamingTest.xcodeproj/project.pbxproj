@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9763BC5413C7C44A006C9313 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9763BC5313C7C44A006C9313 /* LoginController.m */; };
 		F4DB2D1013C6362B00F1C9E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */; };
 		F4DB2D1A13C6362B00F1C9E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DB2D1813C6362B00F1C9E1 /* InfoPlist.strings */; };
 		F4DB2D1D13C6362B00F1C9E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D1C13C6362B00F1C9E1 /* main.m */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9763BC5213C7C44A006C9313 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		9763BC5313C7C44A006C9313 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		F4DB2D0B13C6362B00F1C9E1 /* streamingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = streamingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F4DB2D1213C6362B00F1C9E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -139,6 +142,8 @@
 				F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */,
 				F4DB2D5413C6B57B00F1C9E1 /* NewPushTopicController.h */,
 				F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */,
+				9763BC5213C7C44A006C9313 /* LoginController.h */,
+				9763BC5313C7C44A006C9313 /* LoginController.m */,
 			);
 			path = streamingTest;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				F4DB2D5013C6876900F1C9E1 /* NSObject+SBJson.m in Sources */,
 				F4DB2D5313C68F7F00F1C9E1 /* PushTopicsDataSource.m in Sources */,
 				F4DB2D5613C6B57B00F1C9E1 /* NewPushTopicController.m in Sources */,
+				9763BC5413C7C44A006C9313 /* LoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +376,7 @@
 				F4DB2D2B13C6362B00F1C9E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

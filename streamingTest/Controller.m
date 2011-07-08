@@ -14,19 +14,16 @@
 #import "PushTopicsDataSource.h"
 #import "NewPushTopicController.h"
 #import "streamingTestAppDelegate.h"
-
-static NSString *OAUTH_CLIENT_ID = @"3MVG99OxTyEMCQ3hP1_9.Mh8dF_2HjgFbWgjolmyZp4c1MQ7_J7af1XXPjvW2HXv74c83GbUKEdIcn8S3M7KI";
-static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
+#import "LoginController.h"
+#import "streamingTestAppDelegate.h"
 
 @implementation Controller
 
-@synthesize username, password, channel, sessionId, instance, client, stateDescription;
-@synthesize loggedIn, pushTopicsDataSource;
+@synthesize client, stateDescription;
+@synthesize pushTopicsDataSource;
 
 - (id)init {
     self = [super init];
-    self.username = @"sforce2@zaks.demon.co.uk";
-    self.channel = @"/Accounts";
     [self stateChangedTo:sacDisconnected];
     events = [[NSMutableArray alloc] initWithCapacity:32];
     return self;
@@ -39,9 +36,9 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
 
 -(void)query:(NSString *)soql doneBlock:(void (^)(NSDictionary *qr))done {
     NSString *path = [NSString stringWithFormat:@"/services/data/v21.0/query?q=%@", [soql stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSURL *qurl = [NSURL URLWithString:path relativeToURL:[NSURL URLWithString:self.instance]];
+    NSURL *qurl = [NSURL URLWithString:path relativeToURL:[[NSApp delegate] instanceUrl]];
     NSMutableURLRequest *r = [NSMutableURLRequest requestWithURL:qurl];
-    [r addValue:[NSString stringWithFormat:@"OAuth %@", self.sessionId] forHTTPHeaderField:@"Authorization"];
+    [r addValue:[NSString stringWithFormat:@"OAuth %@", [[NSApp delegate] sessionId]] forHTTPHeaderField:@"Authorization"];
     UrlConnectionDelegateWithBlock *d = [UrlConnectionDelegateWithBlock urlDelegateWithBlock:^(NSUInteger httpStatusCode, NSHTTPURLResponse *response, NSData *body, NSError *err) {
         SBJsonParser *p = [[[SBJsonParser alloc] init] autorelease];
         if (httpStatusCode == 200) {
@@ -70,49 +67,17 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
     }];
 }
 
--(void)login:(id)sender {
-    NSString *params = [NSString stringWithFormat:@"grant_type=password&client_id=%@&client_secret=%@&username=%@&password=%@",
-                            [OAUTH_CLIENT_ID stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                            [OAUTH_CLIENT_SECRET stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                            [self.username stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                            [self.password stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSURL *url = [NSURL URLWithString:@"https://login.salesforce.com/services/oauth2/token"];
-    
-    NSMutableURLRequest *r = [NSMutableURLRequest requestWithURL:url];
-    [r setHTTPMethod:@"POST"];
-    [r setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    UrlConnectionDelegateWithBlock *d = [UrlConnectionDelegateWithBlock urlDelegateWithBlock:^(NSUInteger httpStatusCode, NSHTTPURLResponse *response, NSData *body, NSError *err) {
-        SBJsonParser *p = [[[SBJsonParser alloc] init] autorelease];
-        NSDictionary *o = [p objectWithData:body];
-        // TODO check for errors
-        NSString *e = [o objectForKey:@"error"];
-        if (e == nil) {
-            self.sessionId = [o objectForKey:@"access_token"];
-            self.instance  = [o objectForKey:@"instance_url"];
-            self.client = [[[StreamingApiClient alloc] initWithSessionId:self.sessionId instance:[NSURL URLWithString:self.instance]] autorelease];
-            self.client.delegate = self;
-            self.loggedIn = YES;
-            [[NSApp delegate] setSessionId:self.sessionId];
-            [[NSApp delegate] setInstanceUrl:[NSURL URLWithString:self.instance]];
-            [self startPushTopicQuery];
-        }
-    } runOnMainThread:YES];
-    
-    [[[NSURLConnection alloc] initWithRequest:r delegate:d startImmediately:YES] autorelease];
+-(void)authenticated:(NSString *)sid onInstance:(NSURL *)instanceUrl {
+    [[NSApp delegate] setSessionId:sid];
+    [[NSApp delegate] setInstanceUrl:instanceUrl];
+    self.client = [[[StreamingApiClient alloc] initWithSessionId:sid instance:instanceUrl] autorelease];
+    self.client.delegate = self;
+    [self startPushTopicQuery];
 }
 
 -(IBAction)clearEvents:(id)sender {
     [events removeAllObjects];
     [eventTable reloadData];
-}
-
--(void)start:(id)sender {
-    [self.client startConnect:self.channel];
-}
-
--(void)stop:(id)sender {
-    [self.client stop];
 }
 
 -(void)eventOnChannel:(NSString *)eventChannel message:(NSDictionary *)eventMessage {

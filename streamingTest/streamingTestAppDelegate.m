@@ -6,14 +6,22 @@
 //
 
 #import "streamingTestAppDelegate.h"
+#import "LoginController.h"
 
 @implementation streamingTestAppDelegate
 
 @synthesize window, sessionId, instanceUrl;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    // Insert code here to initialize your application
++(NSSet *)keyPathsForValuesAffectingLoggedIn {
+    return [NSSet setWithObject:@"sessionId"];
+}
+
+-(BOOL)loggedIn {
+    return [self.sessionId length] > 0;
+}
+
+-(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [login showSheet:self.window];
 }
 
 @end
