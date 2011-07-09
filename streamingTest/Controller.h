@@ -37,6 +37,7 @@
     IBOutlet    NSTableView *eventTable, *topicsTable;
     IBOutlet    NewPushTopicController   *newTopicController;
     NSMutableArray                       *events;
+    NSDateFormatter                      *dateFormatter;
 }
 
 @property (retain) StreamingApiClient   *client;

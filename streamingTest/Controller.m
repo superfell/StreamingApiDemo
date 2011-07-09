@@ -37,11 +37,15 @@
     self = [super init];
     [self stateChangedTo:sacDisconnected];
     events = [[NSMutableArray alloc] initWithCapacity:32];
+    // Sat Jul 09 04:57:38 GMT 2011
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss zzz yyyy"];
     return self;
 }
 
 - (void)dealloc {
     [events release];
+    [dateFormatter release];
     [super dealloc];
 }
 
@@ -138,8 +142,10 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     NSDictionary *e = [events objectAtIndex:row];
-    if ([[tableColumn identifier] isEqualToString:@"when"])
-        return [e objectForKey:@"eventCreatedDate"];
+    if ([[tableColumn identifier] isEqualToString:@"when"]) {
+        NSDate *date = [dateFormatter dateFromString:[e objectForKey:@"eventCreatedDate"]];
+        return date;
+    }
     return [e JSONRepresentation];
 }
 
