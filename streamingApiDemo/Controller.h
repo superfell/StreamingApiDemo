@@ -32,10 +32,15 @@
 // in the event list.
 
 @class NewPushTopicController;
+@class DetailsDataSource;
 
-@interface Controller : NSObject <StreamingApiClientDelegate, NSTableViewDataSource, TableSubscribes, LoginControllerDelegate> {
+@interface Controller : NSObject <StreamingApiClientDelegate, NSTableViewDataSource, NSTableViewDelegate, TableSubscribes, LoginControllerDelegate> {
+    IBOutlet    NSWindow                 *mainWindow;
     IBOutlet    NSTableView *eventTable, *topicsTable;
     IBOutlet    NewPushTopicController   *newTopicController;
+    IBOutlet    NSWindow                 *detailsWindow;
+    IBOutlet    DetailsDataSource        *detailsDataSource;
+    
     NSMutableArray                       *events;
     NSDateFormatter                      *dateFormatter;
 }

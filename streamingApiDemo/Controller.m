@@ -25,6 +25,7 @@
 #import "NSObject+SBJson.h"
 #import "StreamingApiClient.h"
 #import "PushTopicsDataSource.h"
+#import "DetailsDataSource.h"
 #import "NewPushTopicController.h"
 #import "StreamingApiDemoAppDelegate.h"
 
@@ -71,8 +72,7 @@
 // when/if a new topic is created, we'll add it onto the end of hte list of push topics we'd
 // previous got from the query.
 -(IBAction)addPushTopic:(id)sender {
-    NSWindow *myWindow = [[NSApp delegate] window];
-    [newTopicController showSheetForWindow:myWindow topicBlock:^(NSDictionary *newTopic) {
+    [newTopicController showSheetForWindow:mainWindow topicBlock:^(NSDictionary *newTopic) {
         NSLog(@"newTopic is %@", newTopic);
         if (newTopic == nil) return;
         [self.pushTopicsDataSource addObject:newTopic];
@@ -136,17 +136,31 @@
 }
 
 // This is the DataSource protocol for the Events table
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return events.count;
 }
 
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     NSDictionary *e = [events objectAtIndex:row];
     if ([[tableColumn identifier] isEqualToString:@"when"]) {
         NSDate *date = [dateFormatter dateFromString:[e objectForKey:@"eventCreatedDate"]];
         return date;
     }
     return [e JSONRepresentation];
+}
+
+-(void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+    if ([eventTable selectedRow] == -1) return;
+    NSDictionary *row = [events objectAtIndex:[eventTable selectedRow]];
+    [detailsDataSource setEvent:row];
+    if (![detailsWindow isVisible]) {
+        NSRect mw = [mainWindow frame];
+        NSRect dw = [detailsWindow frame];
+        dw.origin.x = mw.origin.x + mw.size.width;
+        dw.origin.y = mw.origin.y;
+        [detailsWindow orderFront:self];
+        [detailsWindow setFrame:dw display:YES animate:YES];
+    }
 }
 
 @end

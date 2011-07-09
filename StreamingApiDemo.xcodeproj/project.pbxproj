@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F409F70B13C813A9007499B3 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F409F70A13C813A8007499B3 /* Credits.html */; };
 		F409F71E13C81CCF007499B3 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F70D13C81CCF007499B3 /* NSObject+SBJson.m */; };
 		F409F71F13C81CCF007499B3 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F70F13C81CCF007499B3 /* SBJsonParser.m */; };
 		F409F72013C81CCF007499B3 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F71113C81CCF007499B3 /* SBJsonStreamParser.m */; };
@@ -28,11 +27,11 @@
 		F409F74413C81DAD007499B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F74013C81DAD007499B3 /* main.m */; };
 		F409F74913C81DC3007499B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F409F74713C81DC3007499B3 /* InfoPlist.strings */; };
 		F409F74C13C820B0007499B3 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F409F74B13C820B0007499B3 /* Credits.html */; };
+		F409F75B13C8D216007499B3 /* DetailsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F75A13C8D216007499B3 /* DetailsDataSource.m */; };
 		F4DB2D1013C6362B00F1C9E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F409F70A13C813A8007499B3 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = /Users/simon/code/prototypeProjects/streamingTest/streamingTest/Credits.html; sourceTree = "<absolute>"; };
 		F409F70C13C81CCF007499B3 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "json/NSObject+SBJson.h"; sourceTree = "<group>"; };
 		F409F70D13C81CCF007499B3 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "json/NSObject+SBJson.m"; sourceTree = "<group>"; };
 		F409F70E13C81CCF007499B3 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = json/SBJsonParser.h; sourceTree = "<group>"; };
@@ -71,6 +70,8 @@
 		F409F74213C81DAD007499B3 /* StreamingApiDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "StreamingApiDemo-Prefix.pch"; path = "streamingApiDemo/StreamingApiDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		F409F74813C81DC3007499B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = streamingApiDemo/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		F409F74B13C820B0007499B3 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = streamingApiDemo/Credits.html; sourceTree = SOURCE_ROOT; };
+		F409F75913C8D216007499B3 /* DetailsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsDataSource.h; path = streamingApiDemo/DetailsDataSource.h; sourceTree = SOURCE_ROOT; };
+		F409F75A13C8D216007499B3 /* DetailsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsDataSource.m; path = streamingApiDemo/DetailsDataSource.m; sourceTree = SOURCE_ROOT; };
 		F4DB2D0B13C6362B00F1C9E1 /* StreamingApiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F4DB2D1213C6362B00F1C9E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -140,6 +141,8 @@
 				F409F72C13C81D58007499B3 /* NewPushTopicController.m */,
 				F409F72913C81D57007499B3 /* LoginController.h */,
 				F409F72A13C81D57007499B3 /* LoginController.m */,
+				F409F75913C8D216007499B3 /* DetailsDataSource.h */,
+				F409F75A13C8D216007499B3 /* DetailsDataSource.m */,
 				F409F73313C81D5B007499B3 /* UrlConnectionDelegate.h */,
 				F409F73413C81D5C007499B3 /* UrlConnectionDelegate.m */,
 				F409F73113C81D5A007499B3 /* StreamingApiDemoAppDelegate.h */,
@@ -265,6 +268,7 @@
 				F409F73A13C81D5C007499B3 /* StreamingApiDemoAppDelegate.m in Sources */,
 				F409F73B13C81D5C007499B3 /* UrlConnectionDelegate.m in Sources */,
 				F409F74413C81DAD007499B3 /* main.m in Sources */,
+				F409F75B13C8D216007499B3 /* DetailsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
