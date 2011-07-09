@@ -21,7 +21,24 @@
 
 #import <Cocoa/Cocoa.h>
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
+@class LoginController;
+
+// Our app delegate, this doesn't do much, mainly hang onto the 
+// authentication info, and trigger a login UI if needed.
+
+@interface StreamingApiDemoAppDelegate : NSObject <NSApplicationDelegate> {
+    NSWindow    *window;
+    NSString    *sessionId;
+    NSURL       *instanceUrl;
+    
+    IBOutlet LoginController *login;
 }
+
+@property (assign) IBOutlet NSWindow *window;
+@property (retain) NSString *sessionId;
+@property (retain) NSURL *instanceUrl;
+
+-(BOOL)loggedIn;
+-(IBAction)login:(id)sender;
+
+@end

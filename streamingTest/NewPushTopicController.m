@@ -20,7 +20,7 @@
 //
 
 #import "NewPushTopicController.h"
-#import "streamingTestAppDelegate.h"
+#import "StreamingApiDemoAppDelegate.h"
 #import "NSObject+SBJson.h"
 #import "UrlConnectionDelegate.h"
 #import "SBJsonParser.h"

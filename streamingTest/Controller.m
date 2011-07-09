@@ -26,7 +26,7 @@
 #import "StreamingApiClient.h"
 #import "PushTopicsDataSource.h"
 #import "NewPushTopicController.h"
-#import "streamingTestAppDelegate.h"
+#import "StreamingApiDemoAppDelegate.h"
 
 @implementation Controller
 

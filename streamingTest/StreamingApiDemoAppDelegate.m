@@ -19,9 +19,28 @@
 // THE SOFTWARE.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "StreamingApiDemoAppDelegate.h"
+#import "LoginController.h"
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
+@implementation StreamingApiDemoAppDelegate
+
+@synthesize window, sessionId, instanceUrl;
+
+// Tell KVO/Bindings that the loggedIn property is affected by the sessionid property changing.
++(NSSet *)keyPathsForValuesAffectingLoggedIn {
+    return [NSSet setWithObject:@"sessionId"];
 }
+
+-(BOOL)loggedIn {
+    return [self.sessionId length] > 0;
+}
+
+-(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [self login:self];
+}
+
+-(IBAction)login:(id)sender {
+    [login showSheet:self.window];
+}
+
+@end
