@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9763BC5413C7C44A006C9313 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9763BC5313C7C44A006C9313 /* LoginController.m */; };
 		F409F70B13C813A9007499B3 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F409F70A13C813A8007499B3 /* Credits.html */; };
 		F409F71E13C81CCF007499B3 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F70D13C81CCF007499B3 /* NSObject+SBJson.m */; };
 		F409F71F13C81CCF007499B3 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F70F13C81CCF007499B3 /* SBJsonParser.m */; };
@@ -18,22 +17,22 @@
 		F409F72413C81CCF007499B3 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F71913C81CCF007499B3 /* SBJsonStreamWriterState.m */; };
 		F409F72513C81CCF007499B3 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F71B13C81CCF007499B3 /* SBJsonTokeniser.m */; };
 		F409F72613C81CCF007499B3 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F71D13C81CCF007499B3 /* SBJsonWriter.m */; };
+		F409F73513C81D5C007499B3 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F72813C81D57007499B3 /* Controller.m */; };
+		F409F73613C81D5C007499B3 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F72A13C81D57007499B3 /* LoginController.m */; };
+		F409F73713C81D5C007499B3 /* NewPushTopicController.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F72C13C81D58007499B3 /* NewPushTopicController.m */; };
+		F409F73813C81D5C007499B3 /* PushTopicsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F72E13C81D59007499B3 /* PushTopicsDataSource.m */; };
+		F409F73913C81D5C007499B3 /* StreamingApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F73013C81D5A007499B3 /* StreamingApiClient.m */; };
+		F409F73A13C81D5C007499B3 /* StreamingApiDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F73213C81D5A007499B3 /* StreamingApiDemoAppDelegate.m */; };
+		F409F73B13C81D5C007499B3 /* UrlConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F73413C81D5C007499B3 /* UrlConnectionDelegate.m */; };
+		F409F73E13C81D9B007499B3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F409F73C13C81D9B007499B3 /* MainMenu.xib */; };
+		F409F74413C81DAD007499B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F409F74013C81DAD007499B3 /* main.m */; };
+		F409F74913C81DC3007499B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F409F74713C81DC3007499B3 /* InfoPlist.strings */; };
+		F409F74C13C820B0007499B3 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F409F74B13C820B0007499B3 /* Credits.html */; };
 		F4DB2D1013C6362B00F1C9E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */; };
-		F4DB2D1A13C6362B00F1C9E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DB2D1813C6362B00F1C9E1 /* InfoPlist.strings */; };
-		F4DB2D1D13C6362B00F1C9E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D1C13C6362B00F1C9E1 /* main.m */; };
-		F4DB2D2313C6362B00F1C9E1 /* StreamingApiDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D2213C6362B00F1C9E1 /* StreamingApiDemoAppDelegate.m */; };
-		F4DB2D2613C6362B00F1C9E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */; };
-		F4DB2D4713C636A200F1C9E1 /* UrlConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */; };
-		F4DB2D4A13C6398700F1C9E1 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4913C6398700F1C9E1 /* Controller.m */; };
-		F4DB2D4D13C6719B00F1C9E1 /* StreamingApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */; };
-		F4DB2D5313C68F7F00F1C9E1 /* PushTopicsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */; };
-		F4DB2D5613C6B57B00F1C9E1 /* NewPushTopicController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9763BC5213C7C44A006C9313 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
-		9763BC5313C7C44A006C9313 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		F409F70A13C813A8007499B3 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		F409F70A13C813A8007499B3 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = /Users/simon/code/prototypeProjects/streamingTest/streamingTest/Credits.html; sourceTree = "<absolute>"; };
 		F409F70C13C81CCF007499B3 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "json/NSObject+SBJson.h"; sourceTree = "<group>"; };
 		F409F70D13C81CCF007499B3 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "json/NSObject+SBJson.m"; sourceTree = "<group>"; };
 		F409F70E13C81CCF007499B3 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = json/SBJsonParser.h; sourceTree = "<group>"; };
@@ -52,28 +51,31 @@
 		F409F71B13C81CCF007499B3 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonTokeniser.m; path = json/SBJsonTokeniser.m; sourceTree = "<group>"; };
 		F409F71C13C81CCF007499B3 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = json/SBJsonWriter.h; sourceTree = "<group>"; };
 		F409F71D13C81CCF007499B3 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = json/SBJsonWriter.m; sourceTree = "<group>"; };
+		F409F72713C81D56007499B3 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Controller.h; path = streamingApiDemo/Controller.h; sourceTree = SOURCE_ROOT; };
+		F409F72813C81D57007499B3 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Controller.m; path = streamingApiDemo/Controller.m; sourceTree = SOURCE_ROOT; };
+		F409F72913C81D57007499B3 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = streamingApiDemo/LoginController.h; sourceTree = SOURCE_ROOT; };
+		F409F72A13C81D57007499B3 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = streamingApiDemo/LoginController.m; sourceTree = SOURCE_ROOT; };
+		F409F72B13C81D58007499B3 /* NewPushTopicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewPushTopicController.h; path = streamingApiDemo/NewPushTopicController.h; sourceTree = SOURCE_ROOT; };
+		F409F72C13C81D58007499B3 /* NewPushTopicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewPushTopicController.m; path = streamingApiDemo/NewPushTopicController.m; sourceTree = SOURCE_ROOT; };
+		F409F72D13C81D59007499B3 /* PushTopicsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushTopicsDataSource.h; path = streamingApiDemo/PushTopicsDataSource.h; sourceTree = SOURCE_ROOT; };
+		F409F72E13C81D59007499B3 /* PushTopicsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushTopicsDataSource.m; path = streamingApiDemo/PushTopicsDataSource.m; sourceTree = SOURCE_ROOT; };
+		F409F72F13C81D5A007499B3 /* StreamingApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamingApiClient.h; path = streamingApiDemo/StreamingApiClient.h; sourceTree = SOURCE_ROOT; };
+		F409F73013C81D5A007499B3 /* StreamingApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamingApiClient.m; path = streamingApiDemo/StreamingApiClient.m; sourceTree = SOURCE_ROOT; };
+		F409F73113C81D5A007499B3 /* StreamingApiDemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamingApiDemoAppDelegate.h; path = streamingApiDemo/StreamingApiDemoAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		F409F73213C81D5A007499B3 /* StreamingApiDemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamingApiDemoAppDelegate.m; path = streamingApiDemo/StreamingApiDemoAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		F409F73313C81D5B007499B3 /* UrlConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrlConnectionDelegate.h; path = streamingApiDemo/UrlConnectionDelegate.h; sourceTree = SOURCE_ROOT; };
+		F409F73413C81D5C007499B3 /* UrlConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrlConnectionDelegate.m; path = streamingApiDemo/UrlConnectionDelegate.m; sourceTree = SOURCE_ROOT; };
+		F409F73D13C81D9B007499B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = streamingApiDemo/en.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
+		F409F74013C81DAD007499B3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = streamingApiDemo/main.m; sourceTree = SOURCE_ROOT; };
+		F409F74113C81DAD007499B3 /* StreamingApiDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "StreamingApiDemo-Info.plist"; path = "streamingApiDemo/StreamingApiDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F409F74213C81DAD007499B3 /* StreamingApiDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "StreamingApiDemo-Prefix.pch"; path = "streamingApiDemo/StreamingApiDemo-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		F409F74813C81DC3007499B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = streamingApiDemo/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		F409F74B13C820B0007499B3 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = streamingApiDemo/Credits.html; sourceTree = SOURCE_ROOT; };
 		F4DB2D0B13C6362B00F1C9E1 /* StreamingApiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DB2D0F13C6362B00F1C9E1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F4DB2D1213C6362B00F1C9E1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		F4DB2D1313C6362B00F1C9E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F4DB2D1413C6362B00F1C9E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F4DB2D1713C6362B00F1C9E1 /* StreamingApiDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StreamingApiDemo-Info.plist"; sourceTree = "<group>"; };
-		F4DB2D1913C6362B00F1C9E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F4DB2D1B13C6362B00F1C9E1 /* StreamingApiDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StreamingApiDemo-Prefix.pch"; sourceTree = "<group>"; };
-		F4DB2D1C13C6362B00F1C9E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F4DB2D2113C6362B00F1C9E1 /* StreamingApiDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamingApiDemoAppDelegate.h; sourceTree = "<group>"; };
-		F4DB2D2213C6362B00F1C9E1 /* StreamingApiDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingApiDemoAppDelegate.m; sourceTree = "<group>"; };
-		F4DB2D2513C6362B00F1C9E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		F4DB2D4513C636A200F1C9E1 /* UrlConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlConnectionDelegate.h; sourceTree = "<group>"; };
-		F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlConnectionDelegate.m; sourceTree = "<group>"; };
-		F4DB2D4813C6398700F1C9E1 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
-		F4DB2D4913C6398700F1C9E1 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		F4DB2D4B13C6719B00F1C9E1 /* StreamingApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamingApiClient.h; sourceTree = "<group>"; };
-		F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingApiClient.m; sourceTree = "<group>"; };
-		F4DB2D5113C68F7E00F1C9E1 /* PushTopicsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTopicsDataSource.h; sourceTree = "<group>"; };
-		F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTopicsDataSource.m; sourceTree = "<group>"; };
-		F4DB2D5413C6B57B00F1C9E1 /* NewPushTopicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPushTopicController.h; sourceTree = "<group>"; };
-		F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPushTopicController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,21 +130,21 @@
 		F4DB2D1513C6362B00F1C9E1 /* Streaming Api Client Demo */ = {
 			isa = PBXGroup;
 			children = (
-				F4DB2D4B13C6719B00F1C9E1 /* StreamingApiClient.h */,
-				F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */,
-				F4DB2D4813C6398700F1C9E1 /* Controller.h */,
-				F4DB2D4913C6398700F1C9E1 /* Controller.m */,
-				F4DB2D5113C68F7E00F1C9E1 /* PushTopicsDataSource.h */,
-				F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */,
-				F4DB2D5413C6B57B00F1C9E1 /* NewPushTopicController.h */,
-				F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */,
-				9763BC5213C7C44A006C9313 /* LoginController.h */,
-				9763BC5313C7C44A006C9313 /* LoginController.m */,
-				F4DB2D4513C636A200F1C9E1 /* UrlConnectionDelegate.h */,
-				F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */,
-				F4DB2D2113C6362B00F1C9E1 /* StreamingApiDemoAppDelegate.h */,
-				F4DB2D2213C6362B00F1C9E1 /* StreamingApiDemoAppDelegate.m */,
-				F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */,
+				F409F72F13C81D5A007499B3 /* StreamingApiClient.h */,
+				F409F73013C81D5A007499B3 /* StreamingApiClient.m */,
+				F409F72713C81D56007499B3 /* Controller.h */,
+				F409F72813C81D57007499B3 /* Controller.m */,
+				F409F72D13C81D59007499B3 /* PushTopicsDataSource.h */,
+				F409F72E13C81D59007499B3 /* PushTopicsDataSource.m */,
+				F409F72B13C81D58007499B3 /* NewPushTopicController.h */,
+				F409F72C13C81D58007499B3 /* NewPushTopicController.m */,
+				F409F72913C81D57007499B3 /* LoginController.h */,
+				F409F72A13C81D57007499B3 /* LoginController.m */,
+				F409F73313C81D5B007499B3 /* UrlConnectionDelegate.h */,
+				F409F73413C81D5C007499B3 /* UrlConnectionDelegate.m */,
+				F409F73113C81D5A007499B3 /* StreamingApiDemoAppDelegate.h */,
+				F409F73213C81D5A007499B3 /* StreamingApiDemoAppDelegate.m */,
+				F409F73C13C81D9B007499B3 /* MainMenu.xib */,
 				F4DB2D1613C6362B00F1C9E1 /* Supporting Files */,
 			);
 			name = "Streaming Api Client Demo";
@@ -152,11 +154,11 @@
 		F4DB2D1613C6362B00F1C9E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F409F70A13C813A8007499B3 /* Credits.html */,
-				F4DB2D1713C6362B00F1C9E1 /* StreamingApiDemo-Info.plist */,
-				F4DB2D1813C6362B00F1C9E1 /* InfoPlist.strings */,
-				F4DB2D1B13C6362B00F1C9E1 /* StreamingApiDemo-Prefix.pch */,
-				F4DB2D1C13C6362B00F1C9E1 /* main.m */,
+				F409F74B13C820B0007499B3 /* Credits.html */,
+				F409F74013C81DAD007499B3 /* main.m */,
+				F409F74713C81DC3007499B3 /* InfoPlist.strings */,
+				F409F74113C81DAD007499B3 /* StreamingApiDemo-Info.plist */,
+				F409F74213C81DAD007499B3 /* StreamingApiDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -233,9 +235,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4DB2D1A13C6362B00F1C9E1 /* InfoPlist.strings in Resources */,
-				F4DB2D2613C6362B00F1C9E1 /* MainMenu.xib in Resources */,
-				F409F70B13C813A9007499B3 /* Credits.html in Resources */,
+				F409F73E13C81D9B007499B3 /* MainMenu.xib in Resources */,
+				F409F74913C81DC3007499B3 /* InfoPlist.strings in Resources */,
+				F409F74C13C820B0007499B3 /* Credits.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,14 +248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4DB2D1D13C6362B00F1C9E1 /* main.m in Sources */,
-				F4DB2D2313C6362B00F1C9E1 /* StreamingApiDemoAppDelegate.m in Sources */,
-				F4DB2D4713C636A200F1C9E1 /* UrlConnectionDelegate.m in Sources */,
-				F4DB2D4A13C6398700F1C9E1 /* Controller.m in Sources */,
-				F4DB2D4D13C6719B00F1C9E1 /* StreamingApiClient.m in Sources */,
-				F4DB2D5313C68F7F00F1C9E1 /* PushTopicsDataSource.m in Sources */,
-				F4DB2D5613C6B57B00F1C9E1 /* NewPushTopicController.m in Sources */,
-				9763BC5413C7C44A006C9313 /* LoginController.m in Sources */,
 				F409F71E13C81CCF007499B3 /* NSObject+SBJson.m in Sources */,
 				F409F71F13C81CCF007499B3 /* SBJsonParser.m in Sources */,
 				F409F72013C81CCF007499B3 /* SBJsonStreamParser.m in Sources */,
@@ -263,26 +257,34 @@
 				F409F72413C81CCF007499B3 /* SBJsonStreamWriterState.m in Sources */,
 				F409F72513C81CCF007499B3 /* SBJsonTokeniser.m in Sources */,
 				F409F72613C81CCF007499B3 /* SBJsonWriter.m in Sources */,
+				F409F73513C81D5C007499B3 /* Controller.m in Sources */,
+				F409F73613C81D5C007499B3 /* LoginController.m in Sources */,
+				F409F73713C81D5C007499B3 /* NewPushTopicController.m in Sources */,
+				F409F73813C81D5C007499B3 /* PushTopicsDataSource.m in Sources */,
+				F409F73913C81D5C007499B3 /* StreamingApiClient.m in Sources */,
+				F409F73A13C81D5C007499B3 /* StreamingApiDemoAppDelegate.m in Sources */,
+				F409F73B13C81D5C007499B3 /* UrlConnectionDelegate.m in Sources */,
+				F409F74413C81DAD007499B3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F4DB2D1813C6362B00F1C9E1 /* InfoPlist.strings */ = {
+		F409F73C13C81D9B007499B3 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F4DB2D1913C6362B00F1C9E1 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4DB2D2513C6362B00F1C9E1 /* en */,
+				F409F73D13C81D9B007499B3 /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		F409F74713C81DC3007499B3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F409F74813C81DC3007499B3 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -302,7 +304,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -316,7 +318,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -328,8 +330,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "streamingTest/StreamingApiDemo-Prefix.pch";
-				INFOPLIST_FILE = "streamingTest/StreamingApiDemo-Info.plist";
+				GCC_PREFIX_HEADER = "streamingApiDemo/StreamingApiDemo-Prefix.pch";
+				INFOPLIST_FILE = "streamingApiDemo/StreamingApiDemo-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = StreamingApiDemo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -343,8 +346,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "streamingTest/StreamingApiDemo-Prefix.pch";
-				INFOPLIST_FILE = "streamingTest/StreamingApiDemo-Info.plist";
+				GCC_PREFIX_HEADER = "streamingApiDemo/StreamingApiDemo-Prefix.pch";
+				INFOPLIST_FILE = "streamingApiDemo/StreamingApiDemo-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = StreamingApiDemo;
 				WRAPPER_EXTENSION = app;
 			};
