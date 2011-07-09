@@ -16,10 +16,18 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
 
 @synthesize username, password, delegate, isAuthenticating;
 
++(NSSet *)keyPathsForValuesAffectingCanLogin {
+    return [NSSet setWithObjects:@"username", @"password", nil];
+}
+
 -(void)showSheet:(NSWindow *)docWindow {
     self.isAuthenticating = NO;
     self.username = [[NSUserDefaults standardUserDefaults] objectForKey:@"last_username"];
     [NSApp beginSheet:window modalForWindow:docWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
+}
+
+-(BOOL)canLogin {
+    return ([self.username length] > 0) && ([self.password length] > 0);
 }
 
 -(IBAction)login:(id)sender {
@@ -46,8 +54,10 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
             [delegate authenticated:sid onInstance:instance];
             [NSApp endSheet:window returnCode:1];
             [window orderOut:sender];
+            [[NSUserDefaults standardUserDefaults] setObject:self.username forKey:@"last_username"];
         } else {
-            NSString *msg = [o objectForKey:@"message"];
+            NSLog(@"login %@", o);
+            NSString *msg = [o objectForKey:@"error_description"];
             NSAlert *alert = [NSAlert alertWithMessageText:@"Couldn't login" 
                                              defaultButton:@"OK" 
                                            alternateButton:nil 

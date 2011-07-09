@@ -212,7 +212,6 @@
 			isa = PBXProject;
 			buildConfigurationList = F4DB2D0513C6362B00F1C9E1 /* Build configuration list for PBXProject "streamingTest" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

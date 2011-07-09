@@ -21,6 +21,10 @@
 }
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [self login:self];
+}
+
+-(IBAction)login:(id)sender {
     [login showSheet:self.window];
 }
 

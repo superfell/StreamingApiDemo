@@ -16,8 +16,6 @@
 
 @synthesize  name,query,description, showSpinner, createdTopic;
 
-
-
 +(NSSet *)keyPathsForValuesAffectingCanSave {
     return [NSSet setWithObjects:@"name", @"query", nil];
 }

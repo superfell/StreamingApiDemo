@@ -18,6 +18,7 @@
 @property (retain) NSString *username;
 @property (retain) NSString *password;
 @property (assign) BOOL isAuthenticating;
+-(BOOL)canLogin;
 
 @property (assign) IBOutlet NSObject<LoginControllerDelegate> *delegate;
 

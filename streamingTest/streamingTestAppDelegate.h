@@ -22,5 +22,6 @@
 @property (retain) NSURL *instanceUrl;
 
 -(BOOL)loggedIn;
+-(IBAction)login:(id)sender;
 
 @end
