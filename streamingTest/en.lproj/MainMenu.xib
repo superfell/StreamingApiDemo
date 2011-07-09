@@ -2139,8 +2139,9 @@
 							<object class="NSTextFieldCell" key="NSCell" id="641366793">
 								<int key="NSCellFlags">-1804468671</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">sforce2@zaks.demon.co.uk</string>
+								<string key="NSContents"/>
 								<reference key="NSSupport" ref="584933424"/>
+								<string key="NSPlaceholderString">user@example.org</string>
 								<reference key="NSControlView" ref="255160989"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<reference key="NSBackgroundColor" ref="680602299"/>

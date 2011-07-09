@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				F4DB2D2C13C6363700F1C9E1 /* json */,
-				F4DB2D1513C6362B00F1C9E1 /* streamingTest */,
+				F4DB2D1513C6362B00F1C9E1 /* Streaming Api Client Demo */,
 				F4DB2D0E13C6362B00F1C9E1 /* Frameworks */,
 				F4DB2D0C13C6362B00F1C9E1 /* Products */,
 			);
@@ -125,7 +125,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		F4DB2D1513C6362B00F1C9E1 /* streamingTest */ = {
+		F4DB2D1513C6362B00F1C9E1 /* Streaming Api Client Demo */ = {
 			isa = PBXGroup;
 			children = (
 				F4DB2D4B13C6719B00F1C9E1 /* StreamingApiClient.h */,
@@ -145,6 +145,7 @@
 				F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */,
 				F4DB2D1613C6362B00F1C9E1 /* Supporting Files */,
 			);
+			name = "Streaming Api Client Demo";
 			path = streamingTest;
 			sourceTree = "<group>";
 		};
