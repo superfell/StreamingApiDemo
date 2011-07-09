@@ -128,22 +128,22 @@
 		F4DB2D1513C6362B00F1C9E1 /* streamingTest */ = {
 			isa = PBXGroup;
 			children = (
-				F4DB2D4513C636A200F1C9E1 /* UrlConnectionDelegate.h */,
-				F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */,
-				F4DB2D2113C6362B00F1C9E1 /* streamingTestAppDelegate.h */,
-				F4DB2D2213C6362B00F1C9E1 /* streamingTestAppDelegate.m */,
 				F4DB2D4B13C6719B00F1C9E1 /* StreamingApiClient.h */,
 				F4DB2D4C13C6719B00F1C9E1 /* StreamingApiClient.m */,
 				F4DB2D4813C6398700F1C9E1 /* Controller.h */,
 				F4DB2D4913C6398700F1C9E1 /* Controller.m */,
-				F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */,
-				F4DB2D1613C6362B00F1C9E1 /* Supporting Files */,
 				F4DB2D5113C68F7E00F1C9E1 /* PushTopicsDataSource.h */,
 				F4DB2D5213C68F7E00F1C9E1 /* PushTopicsDataSource.m */,
 				F4DB2D5413C6B57B00F1C9E1 /* NewPushTopicController.h */,
 				F4DB2D5513C6B57B00F1C9E1 /* NewPushTopicController.m */,
 				9763BC5213C7C44A006C9313 /* LoginController.h */,
 				9763BC5313C7C44A006C9313 /* LoginController.m */,
+				F4DB2D4513C636A200F1C9E1 /* UrlConnectionDelegate.h */,
+				F4DB2D4613C636A200F1C9E1 /* UrlConnectionDelegate.m */,
+				F4DB2D2113C6362B00F1C9E1 /* streamingTestAppDelegate.h */,
+				F4DB2D2213C6362B00F1C9E1 /* streamingTestAppDelegate.m */,
+				F4DB2D2413C6362B00F1C9E1 /* MainMenu.xib */,
+				F4DB2D1613C6362B00F1C9E1 /* Supporting Files */,
 			);
 			path = streamingTest;
 			sourceTree = "<group>";
@@ -212,6 +212,7 @@
 			isa = PBXProject;
 			buildConfigurationList = F4DB2D0513C6362B00F1C9E1 /* Build configuration list for PBXProject "streamingTest" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

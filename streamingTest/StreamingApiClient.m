@@ -1,8 +1,22 @@
+// Copyright (c) 2011 Simon Fell
 //
-//  StreamingApiClient.m
-//  streamingTest
+// Permission is hereby granted, free of charge, to any person obtaining a 
+// copy of this software and associated documentation files (the "Software"), 
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+// and/or sell copies of the Software, and to permit persons to whom the 
+// Software is furnished to do so, subject to the following conditions:
 //
-//  Created by Simon Fell on 7/7/11.
+// The above copyright notice and this permission notice shall be included 
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+// THE SOFTWARE.
 //
 
 #import "StreamingApiClient.h"
@@ -27,11 +41,12 @@
         writer = [[SBJsonWriter alloc] init];
         state = sacDisconnected;
         
-        // set the Sid cookie in the cookie store
+        // set the Sid cookie in the cookie store, we need to do this because the
+        // streaming API current authenticates via a sid cookie.
         NSDictionary *sidCookieProps = [NSDictionary dictionaryWithObjectsAndKeys:sid, NSHTTPCookieValue,
                                   @"sid", NSHTTPCookieName,
                                   @"TRUE", NSHTTPCookieSecure,
-                                  @"/", NSHTTPCookiePath,
+                                  @"/cometd", NSHTTPCookiePath,
                                   [salesforceInstance host], NSHTTPCookieDomain,
                                   nil];
         NSHTTPCookie *c = [NSHTTPCookie cookieWithProperties:sidCookieProps];
@@ -48,6 +63,7 @@
     [super dealloc];
 }
 
+// builds a POST/CometD request and starts it.
 -(void)postCometd:(NSObject *)data delegate:(UrlConnectionDelegate *)requestDelegate {
     NSMutableURLRequest *r = [NSMutableURLRequest requestWithURL:cometdUrl];
     [r setHTTPMethod:@"POST"];
@@ -60,6 +76,10 @@
     [[[NSURLConnection alloc] initWithRequest:r delegate:requestDelegate startImmediately:YES] autorelease];
 }
 
+// Once we're connected we need to long-poll, get a response, then start a new long-poll
+// this is that loop. In additon, if subscription is not nil, we'll also send a subscribe
+// request with the connect, this allows us to connect and subscribe in one go, which 
+// is more efficent. (TODO, this could allow for multiple subscriptions)
 -(void)connectLoopWithSubscribe:(NSString *)subscription {
     NSDictionary *connectMsg = [NSDictionary dictionaryWithObjectsAndKeys:clientId, @"clientId",
                                 @"/meta/connect", @"channel",
@@ -75,6 +95,10 @@
             NSLog(@"raw data : %@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
         
         NSLog(@"connect returned %@", msgs);
+        // the response once we get it can contain mutliple messages, so we need to process each one
+        // /meta/connect response is used to start the next long poll
+        // other messages not on the /meta/ channels are sent to the delegate.
+        __block BOOL didReconnect = NO;
         [msgs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSDictionary *m = (NSDictionary *)obj;
             NSString *chan = [m objectForKey:@"channel"];
@@ -82,9 +106,11 @@
                 [self.delegate eventOnChannel:chan message:[m objectForKey:@"data"]];
             } else if ([chan isEqualToString:@"/meta/connect"] && [[m objectForKey:@"successful"] intValue] == 1) {
                 self.currentState = sacConnected;
+                didReconnect = YES;
                 [self connectLoopWithSubscribe:nil];
             }
         }];
+        if (!didReconnect) self.currentState = sacDisconnected;
         
     } runOnMainThread:YES];
     NSArray *msgs = subscription == nil ? [NSArray arrayWithObject:connectMsg] : [NSArray arrayWithObjects:connectMsg, subscribeMsg, nil];
@@ -92,7 +118,7 @@
 }
 
 -(void)startConnect:(NSString *)subscription {
-    // do handshake, then start connect loop
+    // we make a handshake request, and once we get the response, we start the connect long-poll loop above.
     self.currentState = sacConnecting;
     NSDictionary *hs = [NSDictionary dictionaryWithObjectsAndKeys:@"/meta/handshake", @"channel", 
                         @"1.0", @"version", 
@@ -110,11 +136,13 @@
 }
 
 -(void)subscribe:(NSString *)subscription {
+    // If we're not connected, then connect & subscribe in one go.
     if (state == sacDisconnected) {
         [self startConnect:subscription];
         return;
     }
     
+    // otherwise send a stand-alone subsribe message.
     NSDictionary *subscribeMsg = [NSDictionary dictionaryWithObjectsAndKeys:clientId, @"clientId",
                                   @"/meta/subscribe", @"channel",
                                   subscription, @"subscription", nil];
@@ -124,13 +152,16 @@
         if (o == nil) 
             NSLog(@"raw data : %@", [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease]);
         
-        NSLog(@"connect returned %@", o);
+        NSLog(@"subscribe returned %@", o);
+        // TODO, handle errors & subscribe responses to delegate
         
     } runOnMainThread:YES];
     [self postCometd:subscribeMsg delegate:d];
 }
 
 -(void)unsubscribe:(NSString *)subscription {
+    // send an unsubscribe message.
+    
     NSDictionary *msg = [NSDictionary dictionaryWithObjectsAndKeys:clientId, @"clientId",
                                   @"/meta/unsubscribe", @"channel",
                                   subscription, @"subscription", nil];
@@ -148,6 +179,7 @@
 
 -(void)stop {
     self.currentState = sacDisconnecting;
+    // send a disconnect message, this will cause the server to send a response to close the long-poll request.
     NSDictionary *disconnectMsg = [NSDictionary dictionaryWithObjectsAndKeys:clientId, @"clientId",
                                   @"/meta/disconnect", @"channel", nil];
     
