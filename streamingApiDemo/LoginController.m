@@ -37,6 +37,8 @@ static NSString *OAUTH_CLIENT_SECRET = @"7341320423187854498";
 -(void)showSheet:(NSWindow *)docWindow {
     self.isAuthenticating = NO;
     self.username = [[NSUserDefaults standardUserDefaults] objectForKey:@"last_username"];
+    if (self.username.length > 0)
+        [passwordField becomeFirstResponder];
     [NSApp beginSheet:window modalForWindow:docWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }
 

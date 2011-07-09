@@ -31,7 +31,8 @@
 @end
 
 @interface LoginController : NSObject {
-    IBOutlet NSWindow *window;
+    IBOutlet NSWindow       *window;
+    IBOutlet NSTextField    *passwordField;
 }
 
 -(void)showSheet:(NSWindow *)docWindow;
