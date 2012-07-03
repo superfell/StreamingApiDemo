@@ -36,21 +36,11 @@
 -(id)initWithSessionId:(NSString *)sid instance:(NSURL *)salesforceInstance {
     self = [super init];
     if (self) {
-        cometdUrl = [[NSURL URLWithString:@"/cometd" relativeToURL:salesforceInstance] retain];
+        cometdUrl = [[NSURL URLWithString:@"/cometd/25.0" relativeToURL:salesforceInstance] retain];
         parser = [[SBJsonParser alloc] init];
         writer = [[SBJsonWriter alloc] init];
         state = sacDisconnected;
-        
-        // set the Sid cookie in the cookie store, we need to do this because the
-        // streaming API current authenticates via a sid cookie.
-        NSDictionary *sidCookieProps = [NSDictionary dictionaryWithObjectsAndKeys:sid, NSHTTPCookieValue,
-                                  @"sid", NSHTTPCookieName,
-                                  @"TRUE", NSHTTPCookieSecure,
-                                  @"/cometd", NSHTTPCookiePath,
-                                  [salesforceInstance host], NSHTTPCookieDomain,
-                                  nil];
-        NSHTTPCookie *c = [NSHTTPCookie cookieWithProperties:sidCookieProps];
-        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:c];
+        sessionId = [sid retain];
     }
     return self;
 }
@@ -60,6 +50,7 @@
     [cometdUrl release];
     [parser release];
     [writer release];
+    [sessionId release];
     [super dealloc];
 }
 
@@ -70,9 +61,10 @@
     NSString *json = [writer stringWithObject:data];
     NSLog(@"sending : %@", json);
     [r setHTTPShouldHandleCookies:YES];
+    [r addValue:[NSString stringWithFormat:@"Bearer %@", sessionId] forHTTPHeaderField:@"Authorization"];
     [r setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [r setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
+
     [[[NSURLConnection alloc] initWithRequest:r delegate:requestDelegate startImmediately:YES] autorelease];
 }
 

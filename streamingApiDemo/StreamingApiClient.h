@@ -56,6 +56,7 @@ typedef enum {
 @interface StreamingApiClient : NSObject {
     NSObject<StreamingApiClientDelegate> *delegate;
 
+    NSString            *sessionId;
     NSString            *clientId;
     NSURL               *cometdUrl;
     StreamingApiState   state;
