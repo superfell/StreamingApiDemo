@@ -4,6 +4,7 @@ This is an OSX 10.6 application that demonstrates the Force.com Streaming API (c
 
 You can download a build version of the code from http://www.pocketsoap.com/osx/streamer.
 
+## Not under active development
 
 # Around the code
 
